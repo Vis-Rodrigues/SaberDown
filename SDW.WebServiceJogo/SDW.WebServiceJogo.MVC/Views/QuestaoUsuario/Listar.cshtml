@@ -1,0 +1,46 @@
+﻿@model IList<SDW.WebServiceJogo.MVC.Models.QuestaoUsuario>
+
+<h3>Listar Questão Usuario</h3>
+
+<!--Formulário de Busca-->
+@using (Html.BeginForm("Buscar", "QuestaoUsuario", FormMethod.Get))
+{
+    <div class="form-inline">
+        @Html.TextBox("usuario", null,
+            new { @class = "form-control", placeholder = "Id do Usuario" })
+        <input type="submit" value="Buscar" class="btn btn-primary" />
+    </div>
+}
+
+<table class="table table-striped">
+    <tr>
+        <th>
+            Código
+        </th>
+        <th>
+            Usuario Id
+        </th>
+        <th>
+            Questao Id
+        </th>
+        <th>Acerto</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @item.QuestaoUsuarioId
+        </td>
+        <td>
+            @item.UsuarioId
+        </td>
+        <td>
+            @item.QuestaoId
+        </td>
+        <td>
+            @item.Acerto
+        </td>
+    </tr>
+}
+
+</table>

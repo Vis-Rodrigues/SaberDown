@@ -1,0 +1,54 @@
+﻿@model IEnumerable<SDW.WebServiceJogo.MVC.Models.GuardaRoupa>
+
+
+<h3>Listar Guarda Roupa</h3>
+@Helper.Mensagem(@TempData["msg"])
+
+<!--Formulário de Busca-->
+@using (Html.BeginForm("Buscar", "GuardaRoupa", FormMethod.Get))
+{
+    <div class="form-inline">
+        @Html.TextBox("usuarioId", null,
+            new { @class = "form-control", placeholder = "Id do Usuario" })
+        <input type="submit" value="Buscar" class="btn btn-primary" />
+    </div>
+}
+
+<table class="table table-striped">
+    <tr>
+        <th>
+            Código
+        </th>
+        <th>
+            Vestimenta
+        </th>
+        <th>
+            Usuario
+        </th>
+        <th>
+            Utilizando Roupa
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @item.GuardaRoupaId
+        </td>
+        <td>
+            @item.Vestuario.Imagem
+        </td>
+        <td>
+            @item.UsuarioId - @item.Usuario.Descricao
+        </td>
+        <td>
+            @item.RoupaUtilizada
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Editar", new { id=item.GuardaRoupaId }) |
+        </td>
+    </tr>
+}
+
+</table>

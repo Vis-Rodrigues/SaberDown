@@ -1,0 +1,40 @@
+﻿@model IList<SDW.WebServiceJogo.MVC.Models.Usuario>
+
+<h2>Lista de Usuario</h2>
+
+@Helper.Mensagem(@TempData["msg"])
+
+<!--Formulário de Busca-->
+@using (Html.BeginForm("Buscar", "Usuario", FormMethod.Get))
+{
+    <div class="form-inline">
+        @Html.TextBox("usuario", null,
+            new { @class = "form-control", placeholder = "Usuario" })
+        @Html.TextBox("senha", null,
+            new { @class = "form-control", placeholder = "Senha" })
+        <input type="submit" value="Buscar" class="btn btn-primary" />
+    </div>
+}
+
+@using (Html.BeginForm())
+{
+    <table class="table table-striped">
+        <tr>
+            <th>Codigo</th>
+            <th>Usuario</th>
+            <th>Senha</th>
+            <th>Email</th>
+            <th>Genero</th>
+        </tr>
+        @foreach(var item in Model)
+        {
+            <tr>
+                <td>@item.UsuarioId</td>
+                <td>@item.Descricao</td>
+                <td>@item.Senha</td>
+                <td>@item.Email</td>
+                <td>@item.Genero.ToString()</td>
+            </tr>
+        }
+    </table>
+}

@@ -1,0 +1,31 @@
+﻿@model SDW.WebServiceJogo.MVC.Models.Vestuario
+@{
+    ViewBag.Title = "Cadastrar";
+}
+
+<h2>Cadastrar Vestimenta</h2>
+
+@Helper.Mensagem(@TempData["msg"])
+
+@using (Html.BeginForm())
+{
+        <div class="form-group">
+            @Html.LabelFor(v => v.Imagem)
+            @Html.TextBoxFor(v => v.Imagem, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(v => v.Preco)
+            @Html.TextBoxFor(v => v.Preco, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(v => v.ClassificacaoVestuario)
+            @Html.DropDownListFor(v => v.ClassificacaoVestuarioId, ViewBag.classificacoes as SelectList, "Selecione", new { @class = "form-control" })
+        </div>
+
+        <div class="form-group">
+            <input type="submit" value="Salvar" class="btn btn-success" />
+        </div>
+
+}
+
+

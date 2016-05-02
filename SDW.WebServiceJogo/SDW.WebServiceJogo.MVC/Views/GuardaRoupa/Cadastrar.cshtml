@@ -1,0 +1,45 @@
+﻿@model SDW.WebServiceJogo.MVC.Models.GuardaRoupa
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h3>GuardaRoupa</h3>
+        <hr />
+        @Helper.Mensagem(@TempData["msg"])
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.UsuarioId, "UsuarioId", htmlAttributes: new { @class = "form-control" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.UsuarioId)
+                @Html.ValidationMessageFor(model => model.UsuarioId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.VestuarioId, "VestuarioId", htmlAttributes: new { @class = "form-control" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.VestuarioId)
+                @Html.ValidationMessageFor(model => model.VestuarioId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.RoupaUtilizada, htmlAttributes: new { @class = "form-control" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.RoupaUtilizada)
+                    @Html.ValidationMessageFor(model => model.RoupaUtilizada, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>  
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Salvar" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+}

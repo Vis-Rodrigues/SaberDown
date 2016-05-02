@@ -1,0 +1,49 @@
+﻿@model IEnumerable<SDW.WebServiceJogo.MVC.Models.AlternativaIdenForme>
+
+<h3>Lista de Alternativa</h3>
+<h6>Identifique A Palavra Correta / Forme a Palavra</h6>
+
+<!--Formulário de Busca-->
+@using (Html.BeginForm("Buscar", "AlternativaIdenFor", FormMethod.Get))
+{
+    <div class="form-inline">
+        @Html.TextBox("questaoId", null,
+            new { @class = "form-control", placeholder = "Id da Questão" })
+        <input type="submit" value="Buscar" class="btn btn-primary" />
+    </div>
+}
+
+<table class="table table-striped">
+    <tr>
+        <th>
+            Código
+        </th>
+        <th>
+            Descricao
+        </th>
+        <th>
+            Correta
+        </th>
+        <th>
+            Questão
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @item.AlternativaIdenFormeId
+        </td>
+        <td>
+            @item.Descricao
+        </td>
+        <td>
+            @item.Correta
+        </td>
+        <td>
+            @item.QuestaoId
+        </td>
+    </tr>
+}
+
+</table>

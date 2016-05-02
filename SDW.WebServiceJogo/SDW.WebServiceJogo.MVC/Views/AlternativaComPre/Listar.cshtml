@@ -1,0 +1,41 @@
+﻿@model IList<SDW.WebServiceJogo.MVC.Models.AlternativaComPreMon>
+
+<h3>Lista Alternativas</h3>
+<h6>Complete a Frase / Preencha a Pontuação / Monte a Frase </h6>
+
+<!--Formulário de Busca-->
+@using (Html.BeginForm("Buscar", "AlternativaComPre", FormMethod.Get))
+{
+    <div class="form-inline">
+        @Html.TextBox("questaoId", null,
+            new { @class = "form-control", placeholder = "Id da Questão" })
+        <input type="submit" value="Buscar" class="btn btn-primary" />
+    </div>
+}
+
+<table class="table table-striped">
+    <tr>
+        <th>Codigo</th>
+        <th>Alternativa</th>
+        <th>Questão</th>
+        <th>Categoria Questão</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @item.AlternativaComPreMonId
+        </td>
+        <td>
+            @item.Descricao
+        </td>
+        <td>
+            @item.QuestaoId - @item.Questao.Descricao
+        </td>
+        <td>
+            @item.Questao.Categoria
+        </td>
+    </tr>
+}
+
+</table>

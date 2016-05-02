@@ -1,0 +1,50 @@
+﻿@model IList<SDW.WebServiceJogo.MVC.Models.Pontuacao>
+
+<h3>Ranking</h3>
+@Helper.Mensagem(@TempData["msg"])
+<!--Formulário de Busca-->
+@using (Html.BeginForm("Buscar", "Pontuacao", FormMethod.Get))
+{
+    <div class="form-inline">
+        @Html.TextBox("usuarioId", null,
+            new { @class = "form-control", placeholder = "Id do Usuario" })
+        <input type="submit" value="Buscar" class="btn btn-primary" />
+    </div>
+}
+
+@using (Html.BeginForm())
+{
+    <table class="table table-striped">
+        <tr>
+            <th>
+                Usuario
+            </th>
+            <th>
+                Pontos
+            </th>
+            <th>
+                Moedas
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UsuarioId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ponto)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Moeda)
+                </td>
+                <td>
+                    @Html.ActionLink("Clique para Editar", "Editar", new { id = item.UsuarioId }) 
+                </td>
+            </tr>
+        }
+    </table>
+}
+

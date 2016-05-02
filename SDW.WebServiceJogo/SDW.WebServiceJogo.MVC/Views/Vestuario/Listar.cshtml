@@ -1,0 +1,45 @@
+﻿@model IList<SDW.WebServiceJogo.MVC.Models.Vestuario>
+
+<h3>Loja de Roupas</h3>
+
+<!--Formulário de Busca-->
+@using (Html.BeginForm("Buscar", "Vestuario", FormMethod.Get))
+{
+    <div class="form-inline">
+        @Html.TextBox("vestId", null,
+            new { @class = "form-control", placeholder = "Id da Vestimenta" })
+        <input type="submit" value="Buscar" class="btn btn-primary" />
+    </div>
+}
+
+<!--Formulário de Busca Por Classificação-->
+@using (Html.BeginForm("BuscarPorClassificacao", "Vestuario", FormMethod.Get))
+{
+    <div class="form-inline">
+        @Html.TextBox("classificacaoId", null,
+            new { @class = "form-control", placeholder = "Id da Classificação" })
+        <input type="submit" value="Buscar" class="btn btn-primary" />
+    </div>
+}
+
+@using (Html.BeginForm())
+{
+    <table class="table table-striped">
+        <tr>
+            <th>Código</th>
+            <th>Descricao</th>
+            <th>Preço</th>
+            <th>Classificação</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.VestuarioId</td>
+                <td>@item.Imagem</td>
+                <td>@item.Preco</td>
+                <td>@item.ClassificacaoVestuario.Descricao</td>
+            </tr>
+        }
+    </table>
+}
+

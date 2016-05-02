@@ -1,0 +1,112 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title Saber Down</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            
+                @Html.ActionLink("Jogo Saber Down", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle"
+                           data-toggle="dropdown">Usuario<span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Cadastrar", "Cadastrar", "Usuario")</li>
+                            <li>@Html.ActionLink("Listar", "Listar", "Usuario")</li>
+                        </ul>
+                    </li>
+                </ul>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle"
+                           data-toggle="dropdown">Pontuacao<span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Cadastrar", "Cadastrar", "Pontuacao")</li>
+                            <li>@Html.ActionLink("Listar", "Listar", "Pontuacao")</li>
+                        </ul>
+                    </li>
+                </ul>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle"
+                           data-toggle="dropdown">Questão<span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Cadastrar Questao", "Cadastrar", "Questao")</li>
+                            <li>@Html.ActionLink("Cadastrar Alternativa Com Pre", "Cadastrar", "AlternativaComPre")</li>
+                            <li>@Html.ActionLink("Listar Alternativa Com Pre", "Listar", "AlternativaComPre")</li>
+                            <li>@Html.ActionLink("Cadastrar Alternativa Iden For", "Cadastrar", "AlternativaIdenFor")</li>
+                            <li>@Html.ActionLink("Listar Alternativa Iden For", "Listar", "AlternativaIdenFor")</li>
+                            <li>@Html.ActionLink("Cadastrar Categoria", "Cadastrar", "Categoria")</li>
+                            <li>@Html.ActionLink("Listar Categoria", "Listar", "Categoria")</li>
+                            <li>@Html.ActionLink("Cadastrar Questao Usuario", "Cadastrar", "QuestaoUsuario")</li>
+                            <li>@Html.ActionLink("Listar Questao Usuario", "Listar", "QuestaoUsuario")</li>
+                        </ul>
+                    </li>
+                </ul>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle"
+                           data-toggle="dropdown">Vestimenta<span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Cadastrar Vestimenta", "Cadastrar", "Vestuario")</li>
+                            <li>@Html.ActionLink("Listar Vestimenta", "Listar", "Vestuario1")</li>
+                            <li>@Html.ActionLink("Cadastrar Classificacao", "Cadastrar", "Classificacao")</li>
+                            <li>@Html.ActionLink("Listar Classificacao", "Listar", "Classificacao")</li>
+                        </ul>
+                    </li>
+                </ul>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle"
+                           data-toggle="dropdown">
+                            Guarda Roupa<span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Cadastrar", "Cadastrar", "GuardaRoupa")</li>
+                            <li>@Html.ActionLink("Listar", "Listar", "GuardaRoupa")</li>
+                        </ul>
+                    </li>
+                </ul>
+                </div>
+                </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+    </div>
+
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+</body>
+</html>
