@@ -2,7 +2,12 @@
 
 <h3>Cadastro de Questão</h3>
 
-@Helper.Mensagem(@TempData["msg"])
+@if (TempData["msg"] != null)
+{
+    <div class="alert alert-success"    >
+        @TempData["msg"]
+    </div>
+}
 
 @using (Html.BeginForm())
 {

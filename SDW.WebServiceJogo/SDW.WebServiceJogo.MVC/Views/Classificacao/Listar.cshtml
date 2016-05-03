@@ -5,7 +5,12 @@
 
 
 <h2>Listar Classificação</h2>
-@Helper.Mensagem(@TempData["msg"])
+@if (TempData["msg"] != null)
+{
+    <div class="alert alert-success"    >
+        @TempData["msg"]
+    </div>
+}
 <div class="table table-striped">
     <table>
         <tr>

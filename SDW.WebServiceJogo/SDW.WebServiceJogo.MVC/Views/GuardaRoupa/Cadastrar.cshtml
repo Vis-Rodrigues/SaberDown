@@ -7,7 +7,12 @@
     <div class="form-horizontal">
         <h3>GuardaRoupa</h3>
         <hr />
-        @Helper.Mensagem(@TempData["msg"])
+ @if (TempData["msg"] != null)
+{
+    <div class="alert alert-success"    >
+        @TempData["msg"]
+    </div>
+}
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
         <div class="form-group">

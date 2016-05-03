@@ -8,7 +8,12 @@
         <h3>AlternativaIdenForme</h3>
         <h6>Identifique A Palavra Correta / Forme a Palavra</h6>
         <hr />
-        @Helper.Mensagem(@TempData["msg"])
+       @if (TempData["msg"] != null)
+{
+    <div class="alert alert-success"    >
+        @TempData["msg"]
+    </div>
+}
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
             @Html.LabelFor(model => model.Descricao, htmlAttributes: new { @class = "control-label col-md-2" })

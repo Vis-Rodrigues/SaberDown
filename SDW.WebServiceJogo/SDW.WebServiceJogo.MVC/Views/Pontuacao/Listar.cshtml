@@ -1,7 +1,12 @@
 ﻿@model IList<SDW.WebServiceJogo.MVC.Models.Pontuacao>
 
 <h3>Ranking</h3>
-@Helper.Mensagem(@TempData["msg"])
+@if (TempData["msg"] != null)
+{
+    <div class="alert alert-success"    >
+        @TempData["msg"]
+    </div>
+}
 <!--Formulário de Busca-->
 @using (Html.BeginForm("Buscar", "Pontuacao", FormMethod.Get))
 {
