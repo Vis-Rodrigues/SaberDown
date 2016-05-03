@@ -10,7 +10,7 @@ namespace SDW.WebServiceJogo.MVC.Models
     {
         public int QuestaoId { get; set; }
    
-        [MaxLength(50)]
+        [MaxLength(300)]
         public String Descricao { get; set; }
 
         public Categoria Categoria { get; set; }

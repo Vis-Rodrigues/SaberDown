@@ -21,9 +21,9 @@ namespace SDW.WebServiceJogo.MVC.Repositories
             _context.Entry(pontuacao).State = System.Data.Entity.EntityState.Modified;
         }
 
-        public ICollection<Pontuacao> BuscarPorUsuario(int id)
+        public Pontuacao BuscarPorUsuario(int id)
         {
-            return _context.Pontuacoes.Include("Usuario").Where(p => p.UsuarioId == id).ToList();
+            return _context.Pontuacoes.Find(id);
         }
 
         public void Cadastrar(Pontuacao pontuacao)
